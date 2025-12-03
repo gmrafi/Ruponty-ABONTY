@@ -48,6 +48,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -56,6 +57,9 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     background: var(--warm-white);
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -172,13 +176,13 @@ body {
    =========================== */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
     overflow: hidden;
-    padding-top: 80px;
+    padding: 120px 0 60px;
 }
 
 .hero-background {
@@ -187,13 +191,14 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.1;
+    opacity: 0.08;
+    pointer-events: none;
 }
 
 .coffee-beans {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: radial-gradient(circle, var(--coffee-light) 0%, transparent 70%);
     animation: float 20s infinite ease-in-out;
@@ -201,26 +206,26 @@ body {
 
 .coffee-beans:nth-child(1) {
     top: 10%;
-    left: 10%;
+    left: 5%;
     animation-delay: 0s;
 }
 
 .coffee-beans:nth-child(2) {
-    top: 60%;
-    right: 15%;
+    top: 50%;
+    right: 10%;
     animation-delay: 7s;
 }
 
 .coffee-beans:nth-child(3) {
-    bottom: 15%;
+    bottom: 20%;
     left: 50%;
     animation-delay: 14s;
 }
 
 @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -30px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
+    33% { transform: translate(20px, -20px) scale(1.1); }
+    66% { transform: translate(-15px, 15px) scale(0.9); }
 }
 
 /* Hero Container - Two Column Layout */
@@ -229,27 +234,24 @@ body {
     z-index: 10;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
-    max-width: 1400px;
     width: 100%;
-    padding: 0 var(--spacing-lg);
-    margin: 0 auto;
 }
 
 .hero-content {
-    animation: fadeInLeft 1.2s ease;
+    animation: fadeInLeft 1s ease;
 }
 
 .hero-images {
     position: relative;
-    animation: fadeInRight 1.2s ease;
+    animation: fadeInRight 1s ease;
 }
 
 @keyframes fadeInLeft {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-30px);
     }
     to {
         opacity: 1;
@@ -260,7 +262,7 @@ body {
 @keyframes fadeInRight {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(30px);
     }
     to {
         opacity: 1;
@@ -268,82 +270,71 @@ body {
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .hero-label {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--rose-gold);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+    margin-bottom: 1rem;
+    font-weight: 600;
     background: rgba(183, 110, 121, 0.1);
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 30px;
 }
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--coffee-dark);
-    line-height: 1.2;
     margin-bottom: 1.5rem;
 }
 
 .brand-name {
     font-family: var(--font-heading);
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     color: var(--coffee-medium);
     display: block;
     background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--rose-gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
 }
 
 .hero-subtitle-text {
-    font-size: 2rem;
+    display: block;
+    font-size: 1.3rem;
     color: var(--coffee-light);
     font-weight: 400;
     font-style: italic;
+    font-family: var(--font-heading);
 }
 
 .hero-description {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--coffee-light);
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
 }
 
 /* Hero Features */
 .hero-features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .hero-feature {
     display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.6rem;
 }
 
 .feature-icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     flex-shrink: 0;
 }
 
@@ -353,89 +344,51 @@ body {
 }
 
 .feature-text strong {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--coffee-dark);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.1rem;
+    font-weight: 600;
 }
 
 .feature-text span {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--coffee-light);
-}
-
-/* Hero Stats */
-.hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem 0;
-    border-top: 2px solid rgba(93, 64, 55, 0.1);
-    border-bottom: 2px solid rgba(93, 64, 55, 0.1);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--rose-gold);
-    font-family: var(--font-heading);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.85rem;
-    color: var(--coffee-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
 /* Hero Trust Badges */
 .hero-trust {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 .trust-badge {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--coffee-medium);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-weight: 500;
 }
 
 /* Hero Images */
 .hero-image-main {
     position: relative;
-    border-radius: 30px;
+    border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(62, 39, 35, 0.2);
-    margin-bottom: 1.5rem;
-    animation: floatImage 6s ease-in-out infinite;
-}
-
-@keyframes floatImage {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    box-shadow: 0 15px 50px rgba(62, 39, 35, 0.2);
+    margin-bottom: 1rem;
 }
 
 .hero-image-main img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
 }
 
 .hero-image-main:hover img {
@@ -450,14 +403,14 @@ body {
 
 .image-badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     background: linear-gradient(135deg, var(--rose-gold) 0%, var(--coffee-medium) 100%);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 30px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -473,8 +426,8 @@ body {
     border-radius: 20px;
     overflow: hidden;
     aspect-ratio: 1;
-    box-shadow: 0 10px 30px rgba(62, 39, 35, 0.15);
-    transition: transform 0.4s ease;
+    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.15);
+    transition: transform 0.3s ease;
 }
 
 .grid-image:hover {
@@ -482,7 +435,7 @@ body {
 }
 
 .grid-image img {
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
 }
 
 .grid-image:hover img {
@@ -495,9 +448,9 @@ body {
     left: 0;
     right: 0;
     background: linear-gradient(to top, rgba(62, 39, 35, 0.9), transparent);
-    padding: 1rem;
+    padding: 0.8rem;
     transform: translateY(100%);
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .grid-image:hover .image-overlay {
@@ -507,49 +460,7 @@ body {
 .image-overlay span {
     color: white;
     font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* Floating Badges */
-.hero-float-badge {
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-    padding: 1rem;
-    box-shadow: 0 10px 30px rgba(62, 39, 35, 0.15);
-    text-align: center;
-    animation: floatBadge 4s ease-in-out infinite;
-}
-
-.hero-float-badge span {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.hero-float-badge p {
-    font-size: 0.75rem;
-    color: var(--coffee-medium);
-    font-weight: 600;
-    line-height: 1.3;
-    margin: 0;
-}
-
-.badge-1 {
-    top: -20px;
-    left: -30px;
-    animation-delay: 0s;
-}
-
-.badge-2 {
-    bottom: 40px;
-    right: -20px;
-    animation-delay: 2s;
-}
-
-@keyframes floatBadge {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
+    font-size: 0.85rem;
 }
 
 .scroll-indicator {
@@ -1882,7 +1793,28 @@ body {
 /* ===========================
    RESPONSIVE DESIGN
    =========================== */
+
+/* Large Tablets and Small Laptops */
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .hero-container {
+        gap: 2.5rem;
+    }
+    
+    .brand-name {
+        font-size: 3.2rem;
+    }
+    
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
     .about-content,
     .why-content,
     .contact-content {
@@ -1947,40 +1879,39 @@ body {
     }
     
     /* Hero Responsive - Tablet */
+    .hero {
+        padding: 100px 0 40px;
+        min-height: auto;
+    }
+    
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 0 var(--spacing-md);
+        gap: 2.5rem;
     }
     
     .hero-content {
         text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
+        max-width: 600px;
+        margin: 0 auto;
     }
     
     .brand-name {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     
     .hero-subtitle-text {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
     
     .hero-features {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.8rem;
+        max-width: 400px;
+        margin: 0 auto 2rem;
     }
     
     .hero-feature {
         justify-content: center;
-    }
-    
-    .hero-stats {
-        justify-content: center;
-        gap: 2rem;
     }
     
     .hero-buttons {
@@ -1996,16 +1927,17 @@ body {
         margin: 0 auto;
     }
     
-    .hero-float-badge {
-        display: none;
-    }
-    
     .section-title {
         font-size: 2.2rem;
     }
     
     .hero-buttons {
         flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .form-row {
@@ -2027,57 +1959,72 @@ body {
 @media (max-width: 480px) {
     /* Hero Responsive - Mobile */
     .hero {
-        padding-top: 60px;
+        padding: 90px 0 30px;
         min-height: auto;
-        padding-bottom: 3rem;
     }
     
-    .hero-title {
-        font-size: 1.8rem;
+    .hero-container {
+        gap: 2rem;
     }
     
     .brand-name {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         letter-spacing: 2px;
     }
     
     .hero-subtitle-text {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .hero-label {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         padding: 0.4rem 1rem;
     }
     
     .hero-description {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
     
-    .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: center;
+    .hero-features {
+        max-width: 100%;
     }
     
-    .stat-number {
-        font-size: 2rem;
+    .feature-text strong {
+        font-size: 0.85rem;
+    }
+    
+    .feature-text span {
+        font-size: 0.7rem;
     }
     
     .hero-image-grid {
         grid-template-columns: 1fr;
     }
     
-    .grid-image:nth-child(n+3) {
+    .grid-image:nth-child(2) {
         display: none;
+    }
+    
+    .trust-badge {
+        font-size: 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .scroll-indicator {
+        bottom: 20px;
+    }
+    
+    .scroll-indicator span {
+        font-size: 0.65rem;
     }
     
     .section-title {
         font-size: 1.8rem;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
     }
     
     .about-decoration {
