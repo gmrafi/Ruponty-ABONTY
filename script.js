@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Smooth scrolling for anchor links
+    // Instant scrolling for anchor links (no smooth behavior)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target) {
                 window.scrollTo({
                     top: target.offsetTop - 80,
-                    behavior: 'smooth'
+                    behavior: 'auto'
                 });
             }
         });
@@ -241,12 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 timestamp: new Date().toISOString()
             });
             
-            // Reset after 5 seconds
-            setTimeout(() => {
-                contactForm.reset();
-                contactForm.style.display = 'block';
-                formSuccess.classList.remove('show');
-            }, 5000);
+            // Reset form immediately
+            contactForm.reset();
+            contactForm.style.display = 'block';
+            formSuccess.classList.remove('show');
         });
     }
     
@@ -262,19 +260,16 @@ document.addEventListener('DOMContentLoaded', () => {
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             z-index: 10001;
-            animation: slideInRight 0.4s ease;
             font-weight: 500;
         `;
         notification.textContent = message;
         
         document.body.appendChild(notification);
         
+        // Remove after 2 seconds
         setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.4s ease';
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 400);
-        }, 3000);
+            document.body.removeChild(notification);
+        }, 2000);
         
         // Add animations
         const style = document.createElement('style');
@@ -298,21 +293,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // SCROLL ANIMATIONS
     // ===========================
     
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // ===========================
+    // SCROLL ANIMATIONS - DISABLED FOR PERFORMANCE
+    // ===========================
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
+    // All elements visible immediately, no Intersection Observer animations
     const animateElements = document.querySelectorAll(`
         .about-content > *,
         .feature-box,
@@ -326,11 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .contact-form
     `);
     
-    animateElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(element);
+    animateElements.forEach((element) => {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
     });
     
     // ===========================
@@ -479,14 +462,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // ===========================
-    // PAGE LOAD ANIMATION
+    // PAGE LOADED - NO ANIMATION
     // ===========================
     
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.6s ease';
-        document.body.style.opacity = '1';
-    }, 100);
+    document.body.style.opacity = '1';
     
     // ===========================
     // CURSOR TRAIL EFFECT (SUBTLE)
