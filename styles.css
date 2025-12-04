@@ -1139,6 +1139,17 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
+.pricing-card.highlight {
+    background: linear-gradient(135deg, var(--cream-light), var(--rose-light));
+    border-color: var(--coffee-medium);
+    box-shadow: var(--shadow-medium);
+}
+
+.pricing-card.highlight .price-display .amount {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
 .card-decoration {
     position: absolute;
     top: 20px;
