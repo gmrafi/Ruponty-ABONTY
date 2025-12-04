@@ -1260,6 +1260,176 @@ body {
 }
 
 /* ===========================
+   CUSTOM PRICING SECTION
+   =========================== */
+.custom-pricing {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-pricing::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(183, 110, 121, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.custom-pricing-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.custom-pricing-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.custom-description {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--coffee-medium);
+    margin: 2rem auto 3rem;
+    max-width: 800px;
+}
+
+.custom-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.custom-feature-item {
+    background: var(--warm-white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.custom-feature-item:hover {
+    border-color: var(--rose-gold);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-5px);
+}
+
+.custom-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.custom-feature-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--coffee-dark);
+    margin-bottom: 0.8rem;
+}
+
+.custom-feature-item p {
+    font-size: 0.95rem;
+    color: var(--coffee-light);
+    line-height: 1.6;
+}
+
+.custom-pricing-info {
+    background: var(--cream-light);
+    padding: 3rem;
+    border-radius: 25px;
+    margin: 3rem 0;
+    border: 3px solid var(--rose-gold);
+}
+
+.pricing-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--coffee-medium);
+    font-weight: 600;
+}
+
+.price-value {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--rose-gold);
+    line-height: 1;
+}
+
+.price-note {
+    font-size: 0.95rem;
+    color: var(--coffee-light);
+    font-style: italic;
+}
+
+.custom-cta {
+    margin-top: 2rem;
+}
+
+.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+}
+
+.cta-subtext {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--coffee-light);
+}
+
+.custom-examples {
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.custom-examples h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--coffee-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.examples-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.example-tag {
+    background: var(--warm-white);
+    color: var(--coffee-medium);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 2px solid var(--rose-light);
+    cursor: pointer;
+}
+
+.example-tag:hover {
+    background: var(--rose-gold);
+    color: var(--warm-white);
+    border-color: var(--rose-gold);
+}
+
+/* ===========================
    TESTIMONIALS SECTION
    =========================== */
 .testimonials {
@@ -1901,6 +2071,18 @@ body {
     .collection-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .custom-features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .price-value {
+        font-size: 3rem;
+    }
+    
+    .custom-pricing-info {
+        padding: 2rem;
     }
 }
 
